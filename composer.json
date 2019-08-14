@@ -1,0 +1,7 @@
+{
+  "require": {
+    "swiftmailer/swiftmailer": "dev-master",
+    "twig/twig":"v2.0",
+    "intervention/image": "dev-master"
+  }
+}
