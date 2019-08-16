@@ -53,7 +53,7 @@ try {
     $mailer = new Swift_Mailer($transport);
 
     $message = (new Swift_Message("Номер заказа: 4"))->setFrom(['worktestvlados@yandex.ru' => 'worktestvlados@yandex.ru'])
-        ->setTo(['klimov-vd@yandex.ru'])
+        ->setTo([$mail])
         ->setBody( "Номер заказа: $id
 Ваш заказ будет доставлен по адресу $address
 DarkBeefBurger за 500 рублей, 1 шт

@@ -1,18 +1,37 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h2>Тестовый шаблончик создан</h2>
-    <p>Привет {{ name }}</p>
-    <p>
-        Логин: {{ username }} <br/>
-        Пароль: {{ password }}
-    </p>
-</body>
-</html>
+<h1>Панель администратора</h1>
+<h2>Все пользователи</h2>
+<table style="border: 1px solid black; border-collapse: collapse;">
+    <tr style="border: 1px solid black; border-collapse: collapse;" >
+        <td style="border: 1px solid black; text-align: center; padding: 5px;">Имя</td>
+        <td style="border: 1px solid black; text-align: center; padding: 5px;">Email</td>
+        <td style="border: 1px solid black; text-align: center; padding: 5px;">Телефон</td>
+        <td style="border: 1px solid black; text-align: center; padding: 5px;">Кол-во заказов</td>
+    </tr>
+    {%  for item in result  %}
+    <tr style="border: 1px solid black; text-align: center; padding: 5px;">
+        <td style="border: 1px solid black; text-align: center; padding: 5px;"> {{ item.name }} </td>
+        <td style="border: 1px solid black; text-align: center; padding: 5px;"> {{ item.email }}</td>
+        <td style="border: 1px solid black; text-align: center; padding: 5px;"> {{ item.phone }} . </td>
+        <td style="border: 1px solid black; text-align: center; padding: 5px;"> {{  item['number_of_oreder'] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h2>Все заказы</h2>
+
+{%  for item in resultOrders  %}
+<div class="order-block">
+    <p> Номер заказа:  {{ item['id'] }} </p>
+    <p> Почта пользователя: {{ item['user_mail'] }} </p>
+    <p> Адрес: {{ item['address'] }} </p>
+    <p> Детали: {{ item['details'] }} </p>
+</div>
+{% endfor %}
+<style>
+    .order-block{
+        border: 1px solid black;
+        width: 400px;
+        text-align: center;
+        margin: 5px 0;
+    }
+</style>
